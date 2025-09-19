@@ -10,6 +10,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write # Permite a escrita na branch de GitHub Pages
+      id-token: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
