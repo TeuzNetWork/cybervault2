@@ -141,9 +141,3 @@ Este projeto foi desenvolvido como demonstração das minhas habilidades em dese
 ---
 
 *"A segurança digital não precisa ser chata. Pode ser cyberpunk."*
-
-### 🤝 Contato
-
-- **Portfolio**: [matheusfernandes.dev](https://matheusfernandes.dev)
-- **LinkedIn**: [linkedin.com/in/matheusfernandes-dev](https://linkedin.com/in/matheusfernandes-dev)
-- **GitHub**: [github.com/matheusfernandes](https://github.com/matheusfernandes)
