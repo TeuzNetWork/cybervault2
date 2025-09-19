@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Sistema de cores cyberpunk personalizado - Matheus Fernandes
+  Inspirado no universo Matrix e estética hacker
+  
+  Demorei um tempo para acertar essas cores... mas ficou do jeito que eu queria!
+  Verde Matrix clássico com toques de ciano para dar aquele contraste.
+*/
+
+/* Todas as cores em HSL - padrão que sempre uso */
+
+@layer base {
+  :root {
+    /* Tema Hacker personalizado - modo escuro por padrão */
+    --background: 240 10% 3.9%; /* Quase preto, mas com um toque azulado */
+    --foreground: 120 100% 50%; /* Verde Matrix puro */
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 120 100% 50%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 120 100% 50%;
+
+    --primary: 120 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 120 100% 50%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 120 50% 70%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 240 10% 3.9%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 120 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Gradientes cyberpunk que criei - ficaram show! */
+    --gradient-cyber: linear-gradient(135deg, hsl(120 100% 50%), hsl(180 100% 50%));
+    --gradient-matrix: linear-gradient(180deg, hsl(120 100% 50% / 0.1), hsl(120 100% 50% / 0.05));
+    --gradient-glow: radial-gradient(circle at center, hsl(120 100% 50% / 0.3), transparent);
+
+    /* Sombras neon - esse efeito levou tempo para ficar bom */
+    --shadow-cyber: 0 0 20px hsl(120 100% 50% / 0.3);
+    --shadow-glow: 0 0 40px hsl(120 100% 50% / 0.4);
+    --shadow-neon: 0 0 10px hsl(120 100% 50%), 0 0 20px hsl(120 100% 50%), 0 0 30px hsl(120 100% 50%);
+
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 120 100% 50%;
+    --sidebar-primary: 120 100% 50%;
+    --sidebar-primary-foreground: 240 10% 3.9%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 120 100% 50%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 120 100% 50%;
+  }
+
+  .dark {
+    /* Hacker Theme - Dark Mode (Enhanced) */
+    --background: 240 10% 3.9%;
+    --foreground: 120 100% 50%;
+
+    --card: 240 5% 6%;
+    --card-foreground: 120 100% 50%;
+
+    --popover: 240 5% 6%;
+    --popover-foreground: 120 100% 50%;
+
+    --primary: 120 100% 50%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 120 100% 50%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 120 50% 70%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 240 10% 3.9%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 120 100% 50%;
+
+    --sidebar-background: 240 10% 3.9%;
+    --sidebar-foreground: 120 100% 50%;
+    --sidebar-primary: 120 100% 50%;
+    --sidebar-primary-foreground: 240 10% 3.9%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 120 100% 50%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 120 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono;
+    /* Fundo sutil com gradientes que dão profundidade - ideia minha */
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(120 100% 50% / 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(180 100% 50% / 0.03) 0%, transparent 50%);
+  }
+
+  /* Scrollbar personalizada - detalhes fazem a diferença */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--accent));
+  }
+}
+
+@layer components {
+  /* Grid cyberpunk - achei essa ideia genial */
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(120 100% 50% / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(120 100% 50% / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  /* Efeito neon que sempre uso */
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+  }
+
+  /* Bordas cyber com hover effect - meu toque especial */
+
+  .cyber-border {
+    position: relative;
+    border: 1px solid hsl(var(--primary));
+  }
+
+  .cyber-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--gradient-cyber);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .cyber-border:hover::before {
+    opacity: 0.5;
+  }
+
+  .matrix-rain {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .matrix-rain::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-matrix);
+    animation: matrix-flow 3s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes matrix-flow {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  /* Efeito glitch no texto - foi difícil de implementar mas ficou perfeito */
+  .glitch-text {
+    position: relative;
+    color: hsl(var(--primary));
+    animation: glitch 2s linear infinite;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    animation: glitch-1 0.5s linear infinite;
+    color: hsl(var(--accent));
+    z-index: -1;
+  }
+
+  .glitch-text::after {
+    animation: glitch-2 0.5s linear infinite;
+    color: hsl(var(--destructive));
+    z-index: -2;
+  }
+
+  @keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+  }
+
+  @keyframes glitch-1 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-1px, 1px); }
+    40% { transform: translate(-1px, -1px); }
+    60% { transform: translate(1px, 1px); }
+    80% { transform: translate(1px, -1px); }
+  }
+
+  @keyframes glitch-2 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(1px, -1px); }
+    40% { transform: translate(1px, 1px); }
+    60% { transform: translate(-1px, -1px); }
+    80% { transform: translate(-1px, 1px); }
+  }
+
+  /* Efeito de digitação - clássico que nunca sai de moda */
+  .typing-effect {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--primary)); }
+  }
+}
