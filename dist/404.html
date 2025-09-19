@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberVault - Redirecionando...</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background: #0a0a0a; 
+            color: #00ff00; 
+            font-family: monospace; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        }
+        .loader {
+            border: 2px solid #00ff00;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+        <p>Redirecionando para CyberVault...</p>
+    </div>
+    <script>
+        // Redireciona para a página inicial do SPA
+        window.location.href = '/cybervault/';
+    </script>
+</body>
+</html>
